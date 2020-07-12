@@ -49,6 +49,19 @@ if cxx.links(mm_malloc_check, name: '_mm_malloc')
     lightgbm_cflags += ['-DMM_MALLOC']
 endif
 
+mm_prefetch_check = '''
+#include <xmmintrin.h>
+int main() {
+  int a = 0;
+  _mm_prefetch(&a, _MM_HINT_NTA);
+  return 0;
+}
+'''
+
+if cxx.links(mm_prefetch_check, name: '_mm_prefetch')
+    lightgbm_cflags += ['-DMM_PREFETCH']
+endif
+
 mpi = dependency('mpi', language: 'cpp', required: get_option('mpi'))
 use_mpi = mpi.found()
 
