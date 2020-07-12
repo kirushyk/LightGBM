@@ -19,7 +19,7 @@ option('gpu',
 option('swig',
     description: 'Enable SWIG to generate Java API',
     type: 'feature',
-    value: 'disabled'
+    value: 'auto'
 )
 
 option('hdfs',
