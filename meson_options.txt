@@ -1,0 +1,49 @@
+option('mpi',
+    description: 'Enable MPI-based parallel learning',
+    type: 'feature',
+    value: 'disabled'
+)
+
+option('openmp',
+    description: 'Enable OpenMP',
+    type: 'feature',
+    value: 'enabled'
+)
+
+option('gpu',
+    description: 'Enable GPU-accelerated training',
+    type: 'feature',
+    value: 'disabled'
+)
+
+option('swig',
+    description: 'Enable SWIG to generate Java API',
+    type: 'feature',
+    value: 'disabled'
+)
+
+option('hdfs',
+    description: 'Enable HDFS support (EXPERIMENTAL)',
+    type: 'feature',
+    value: 'disabled'
+)
+
+#USE_R35
+
+option('timetag',
+    description: 'Set to ON to output time costs',
+    type: 'boolean',
+    value: 'false'
+)
+
+#USE_DEBUG
+
+#BUILD_STATIC_LIB
+
+option('r',
+    description: 'Set to ON if building lib_lightgbm for use with the R package',
+    type: 'feature',
+    value: 'disabled'
+)
+
+#APPLE_OUTPUT_DYLIB
