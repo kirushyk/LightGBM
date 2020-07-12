@@ -7,7 +7,7 @@ option('mpi',
 option('openmp',
     description: 'Enable OpenMP',
     type: 'feature',
-    value: 'enabled'
+    value: 'auto'
 )
 
 option('gpu',
