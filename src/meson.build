@@ -49,6 +49,14 @@ if cxx.links(mm_malloc_check, name: '_mm_malloc')
     lightgbm_cflags += ['-DMM_MALLOC']
 endif
 
+use_mpi = false
+
+if use_mpi
+    lightgbm_cflags += ['-DUSE_MPI']
+else
+    lightgbm_cflags += ['-DUSE_SOCKET']
+endif
+
 executable('lightgbm', lightgbm_sources,
     include_directories: inc,
     cpp_args: lightgbm_cflags
