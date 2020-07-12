@@ -28,8 +28,7 @@ lightgbm_sources = [
     'boosting/boosting.cpp',
     'application/application.cpp',
     'metric/dcg_calculator.cpp',
-    'metric/metric.cpp',
-    'main.cpp'
+    'metric/metric.cpp'
 ]
 
 lightgbm_cflags = []
@@ -71,7 +70,13 @@ else
     lightgbm_cflags += ['-DUSE_SOCKET']
 endif
 
-executable('lightgbm', lightgbm_sources,
+lightgbm = library('_lightgbm', lightgbm_sources,
     include_directories: inc,
     cpp_args: lightgbm_cflags
+)
+
+executable('lightgbm', 'main.cpp',
+    include_directories: inc,
+    cpp_args: lightgbm_cflags,
+    link_with: lightgbm
 )
