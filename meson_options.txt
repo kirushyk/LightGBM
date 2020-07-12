@@ -1,7 +1,7 @@
 option('mpi',
     description: 'Enable MPI-based parallel learning',
     type: 'feature',
-    value: 'disabled'
+    value: 'auto'
 )
 
 option('openmp',
