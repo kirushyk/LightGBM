@@ -49,7 +49,8 @@ if cxx.links(mm_malloc_check, name: '_mm_malloc')
     lightgbm_cflags += ['-DMM_MALLOC']
 endif
 
-use_mpi = false
+mpi = dependency('mpi', language: 'cpp', required: get_option('mpi'))
+use_mpi = mpi.found()
 
 if use_mpi
     lightgbm_cflags += ['-DUSE_MPI']
